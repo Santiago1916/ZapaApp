@@ -44,11 +44,11 @@ class LoginView(APIView):
         serializer.is_valid(raise_exception=True)
 
         user = authenticate(
-            username=serializer.validated_data['email'],
+            username=serializer.validated_data['username'],
             password=serializer.validated_data['password'])
 
         if not user:
-            return Response({"error": "Invalid email or password"}, status="400")
+            return Response({"error": "Invalid username or password"}, status="400")
 
         Jwt.objects.filter(user_id=user.id).delete()
 
