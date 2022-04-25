@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
 import jwt
 from .models import Jwt
 from .models import CustomUser
@@ -61,7 +58,6 @@ class LoginView(APIView):
 
         return Response({"access": access, "refresh": refresh})
 
-
 class RegisterView(APIView):
     serializer_class = RegisterSerializer
 
@@ -71,7 +67,7 @@ class RegisterView(APIView):
 
         CustomUser.objects._create_user(**serializer.validated_data)
 
-        return Response({"success": "User created."})
+        return Response({"success": "User created."},status=201)
 
 
 class RefreshView(APIView):
