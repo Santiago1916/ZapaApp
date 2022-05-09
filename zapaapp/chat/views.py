@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
+# Create your views here.
 from django.http import HttpResponse
 
-
-def index(req):
-    return HttpResponse("Hello, user. You're at the chat index.")
+def index(request):
+    return HttpResponse('Hello, world. You are at the chat index.')
