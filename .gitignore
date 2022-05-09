@@ -1,2 +1,2 @@
-conda_env/share/terminfo/E/
-conda_env/lib/python3.10/__py__cache/
+**/conda_env/share/terminfo/E/
+**/conda_env/lib/python3.10/__py__cache/
