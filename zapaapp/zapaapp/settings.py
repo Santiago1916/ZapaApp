@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'django_extensions',
+    'channels', # para websocket chat tiempo real
     'chat',
 ]
 
@@ -72,6 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'zapaapp.wsgi.application'
 
+ASGI_APPLICATION = 'zapaapp.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
