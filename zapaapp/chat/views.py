@@ -30,15 +30,3 @@ def login_page(request):
 '''
 
 
-def registerPage(request):
-    context = {}
-    return render(request, '', context)
-
-def loginPage(request):
-    context = {}
-    return render(request, '', context)
-
-
-def home(request):
-    context = {}
-    return render(request, '', context)
