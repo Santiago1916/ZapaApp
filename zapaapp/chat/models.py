@@ -37,7 +37,7 @@ class Canal(models.Model):
     nombre = models.CharField(max_length=256)
     #nuevo
     descripcion = models.CharField(max_length=512)
-    mensajes = models.ManyToOneRel(to=Mensaje,field='contenido',field_name='mensajes_log')
+    mensajes = models.ManyToOneRel(to=Mensaje, field='contenido',field_name='mensajes_log')
     #nuevo importantisimo campo
     # cambio -/-> usuarios = models.ManyToManyField(Usuario)
     #usuarios = ArrayField(
