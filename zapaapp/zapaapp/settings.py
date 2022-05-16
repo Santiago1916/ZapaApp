@@ -44,6 +44,13 @@ INSTALLED_APPS = [
 
 ]
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'asgi.inmemory.ChannelLayer', #'channels_redis.core.RedisChannelLayer',
+        'ROUTING': 'django_channels.routing..channel_routing',
+    }
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -85,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'zapaapp',
         'USER': 'postgres',
-        'PASSWORD': 'psql',   ## aqui con secrets cuadramos
+        'PASSWORD': 'pgsql',   ## aqui con secrets cuadramos
         'HOST': 'localhost',
         'PORT': '5432',
     }

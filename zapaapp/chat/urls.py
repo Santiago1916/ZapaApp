@@ -15,5 +15,7 @@ from .import views
 app_name = 'listings'
 
 urlpatterns = [
-    path('login_page/', views.login_page, name='login_page'), 
+    #path('login_page/', views.login_page, name='login_page'), 
+    path('', views.index, name='index'),
+    path('<int:pk>/', views.msg_details, name='msg_details'),
 ]

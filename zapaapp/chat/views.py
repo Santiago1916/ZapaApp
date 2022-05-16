@@ -8,9 +8,9 @@ from chat.models import Mensaje, Usuario, Canal
 
 
 
-def index(request, pk):
-    # return HttpResponse('Hello, world. You are at the chat index.')
-    return msg_details( 1 )
+def index(request):
+    return HttpResponse('Hello, world. You are at the chat index.')
+    #return msg_details( 1 )
 
 
 def msg_details(request, pk):
