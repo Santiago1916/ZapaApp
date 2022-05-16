@@ -67,6 +67,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'zapaapp.wsgi.application'
 
 
@@ -78,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'zapaapp',
         'USER': 'postgres',
-        'PASSWORD': 'pgsql',   ## aqui con secrets cuadramos
+        'PASSWORD': '1916',   ## aqui con secrets cuadramos
         'HOST': 'localhost',
         'PORT': '5432',
     }
