@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -83,6 +85,11 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
+}
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
 }
 
 
