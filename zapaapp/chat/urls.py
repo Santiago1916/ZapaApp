@@ -17,5 +17,5 @@ from .import views
 app_name = 'listings'
 
 urlpatterns = [
-    path('login_page/', views.login_page, name='login_page'), 
+    path('signup/', views.signup, name='signup'),
 ]
