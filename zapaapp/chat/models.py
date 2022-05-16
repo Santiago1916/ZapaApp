@@ -11,7 +11,6 @@ class Mensaje(models.Model):
     receptor = models.CharField(max_length=256)
     fecha = models.DateTimeField(auto_now_add=True)
     #emisor = models.ForeignKey('auth.Usuario', related_name='mensajes_enviados')
-
     # auth.?    
 
 class Usuario(models.Model):
@@ -21,8 +20,12 @@ class Usuario(models.Model):
     fecha_registro = models.DateTimeField(auto_now_add=True)
     fecha_ultimo_login = models.DateTimeField(auto_now=True)
     estado = models.BooleanField(default=True)
-    mensajes_enviados = models.ManyToManyField(Mensaje, related_name='mensajes_enviados')
+    #mensajes_enviados = models.ManyToManyField(Mensaje, related_name='mensajes_enviados')
+    # ni idea aun como implementarlos
 
+    # funcion para obtener info del objeto de una 
+    def __str__(self):
+        return f'{self.nombre}|{self.email}'+ 'Online' if self.estado else 'Offline' 
 # mod en pgadmin chat_usuario para not null fechas
 
 
