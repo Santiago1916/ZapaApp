@@ -25,6 +25,7 @@ def msg_details(request, pk):
 
     return render( request, 'chat/vistas/msg_details.html', context )
 
-
+'''
 def login_page(request):
-    return render(request, 'listings/login_page.html')
+    return render(request, 'listings/base.html')
+'''
