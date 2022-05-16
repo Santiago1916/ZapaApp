@@ -3,6 +3,7 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="login">
     <div class="form">
@@ -10,14 +11,20 @@
             <input type="text" placeholder="name" />
             <input type="password" placeholder="password" />
             <input type="text" placeholder="email" />
-            <button>Create</button>
-            <p><a href="#">Log In</a></p>
+            <button>create</button>
+            <p class="alternate"><a href="#">Log In</a></p>
         </form>
         <form class="login-form">
             <input type="text" placeholder="username" />
             <input type="password" placeholder="password" />
             <button>Login</button>
-            <p><a href="#">Register</a></p>
+            <p class="alternate"><a href="#">Register</a></p>
         </form>
     </div>
 </div>
+
+<script>
+    $('.alternate').click(function () {
+        $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
+</script>
