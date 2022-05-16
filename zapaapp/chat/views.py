@@ -6,8 +6,6 @@ from django.http import HttpResponse
 from chat.models import Mensaje, Usuario, Canal
 
 
-
-
 def index(request, pk):
     # return HttpResponse('Hello, world. You are at the chat index.')
     return msg_details( 1 )
@@ -25,7 +23,22 @@ def msg_details(request, pk):
 
     return render( request, 'chat/vistas/msg_details.html', context )
 
+
 '''
 def login_page(request):
     return render(request, 'listings/base.html')
 '''
+
+
+def registerPage(request):
+    context = {}
+    return render(request, '', context)
+
+def loginPage(request):
+    context = {}
+    return render(request, '', context)
+
+
+def home(request):
+    context = {}
+    return render(request, '', context)

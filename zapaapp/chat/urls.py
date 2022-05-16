@@ -7,6 +7,8 @@ urlpatterns = [
 ]
 '''
 
+
+
 # path -> listings/urls.py
 
 from django.urls import path 
