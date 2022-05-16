@@ -5,16 +5,10 @@ from django.http import HttpResponse
 
 from chat.models import Mensaje, Usuario, Canal
 
-<<<<<<< HEAD
 
 def index(request, pk):
     # return HttpResponse('Hello, world. You are at the chat index.')
     return msg_details( 1 )
-=======
-def index(request):
-    return HttpResponse('Hello, world. You are at the chat index.')
-    #return msg_details(1)
->>>>>>> bebdcc9d (websocket : django channels para el chat)
 
 
 def msg_details(request, pk):
