@@ -29,4 +29,3 @@ def login_page(request):
     return render(request, 'listings/base.html')
 '''
 
-
