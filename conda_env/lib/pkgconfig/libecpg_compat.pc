@@ -1,0 +1,9 @@
+Name: libecpg_compat
+Description: PostgreSQL libecpg_compat library
+Url: http://www.postgresql.org/
+Version: 12.9
+Requires: 
+Requires.private: libecpg libpgtypes
+Cflags: -I/home/etensor/Documents/ZapaApp/conda_env/include
+Libs: -L/home/etensor/Documents/ZapaApp/conda_env/lib -lecpg_compat
+Libs.private: -L/home/etensor/Documents/ZapaApp/conda_env/lib -lpgcommon -lpgport -lpq -lm
