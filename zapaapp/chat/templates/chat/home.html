@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> ZapaApp Chat</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+      
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
+    
+      </head>
+
+<style>
+body {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+</style>
+
+<div align="center">
+    <h2>ZapaApp Chat</h2>
+</div>
+
+
+
+<div class="container">
+    <style>
+    input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+    input[type=submit] {
+    width: 100%;
+    background-color: #000f5b;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+    background-color: #310086;
+    }
+
+    div {
+    border-radius: 5px;
+    background-color: #102010;
+    padding: 20px;
+    }
+    </style>
+
+
+    <body>
+        A que canal quieres entrar? <br>
+
+        <form id="post-form" method="POST" action="check_canal">
+            {% csrf_token %}
+            <label>Nombre (ID) del Canal</label>
+            <input type="text" name="room_name" id="room_name" width="80px" />
+            <label>Usuario</label>
+            <input type="text" name="username" id="username" width="80px" />
+            <input type="submit" value="Entrar al Canal">
+        </form>
+
+
+
+
+
+        <!-- 
+        <input id="canal-nombre-input" type="text" size="100"><br>
+        <input id="canal-nombre-submit" type="button" value="Entrar">
+
+        <script>
+            document.querySelector('#canal-nombre-input').focus();
+            document.querySelector('#canal-nombre-input').onkeyup =
+            function(e) {
+                if (e.keyCode == 13) {
+                    document.querySelector('#canal-nombre-submit').click();
+                }
+            };
+
+            document.querySelector('#canal-nombre-submit').onclick =
+            function(e){
+                var canal = document.querySelector('#canal-nombre-input').value;
+                window.location.pathname = '/chat/' + canal + '/';
+            };
+
+        </script>
+        -->
+
+
+
+    </body>
+</html>

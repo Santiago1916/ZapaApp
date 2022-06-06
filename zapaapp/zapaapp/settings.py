@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5^l)a+^s=snyaw+_qbh9&2raj)xff#pgd4g1_eo$_l*u%)t+ze'
+SECRET_KEY = 'django-insecure-c=p%*)4guf-nu&=1mm+@h3@9_s*%kz$&i-&3bab(vt&_4q$ar%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,19 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
     'django_extensions',
-    'channels', # para websocket chat tiempo real
-    'chat',
-
+    'chat'
 ]
-
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'asgi.inmemory.ChannelLayer', #'channels_redis.core.RedisChannelLayer',
-        'ROUTING': 'django_channels.routing..channel_routing',
-    }
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,7 +56,7 @@ ROOT_URLCONF = 'zapaapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['zapaapp/chat/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,10 +69,8 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'zapaapp.wsgi.application'
 
-ASGI_APPLICATION = 'zapaapp.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -92,17 +80,17 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'zapaapp',
         'USER': 'postgres',
-        'PASSWORD': 'pgsql',   ## aqui con secrets cuadramos
+        'PASSWORD': 'pgsql',  # aqui con secrets cuadramos
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
 
+
 GRAPH_MODELS = {
     'all_applications': True,
     'group_models': True,
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -143,7 +131,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#STATICFILES_DIRS = (f'{BASE_DIR}/static/',)
 
 
 

@@ -1,31 +1,45 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from chat.models import Usuario,Canal,Mensaje
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
-from django.http import HttpResponse
-
-from chat.models import Mensaje, Usuario, Canal
-
+def home(request):
+    return render(request, 'chat/home.html')
 
 
 
-def index(request):
-    return HttpResponse('Hello, world. You are at the chat index.')
-    #return msg_details( 1 )
+def canal(request, canal):
+    username = request.GET.get('username')
+    canal_detalles = Canal.objects.get(name=canal)
+    return render(request, 'chat/canal.html', {
+        'username': username,
+        'room': canal,
+        'room_details': canal_detalles
+    })
+
+def check_canal(request):
+    room = request.POST['room_name']
+    username = request.POST['username']
+
+    if Canal.objects.filter(name=room).exists():
+        return redirect('/'+room+'/?username='+username)
+    else:
+        new_room = Canal.objects.create(name=room)
+        new_room.save()
+        return redirect('/'+room+'/?username='+username)
 
 
-def msg_details(request, pk):
-    msg = Mensaje.objects.get( pk=pk )
-    emsr = Mensaje.objects.filter( emisor=msg.emisor )
-    rcpt = Mensaje.objects.filter( receptor=msg.receptor )
+def send(request):
+    message = request.POST['message']
+    username = request.POST['username']
+    room_id = request.POST['room_id']
 
-    context = {
-        'de': emsr,
-        'para': rcpt,
-    }
+    new_msg = Mensaje.objects.create(value=message, user=username, canal=room_id)
+    new_msg.save()
+    return HttpResponse('Mensaje enviado.')
 
-    return render( request, 'chat/vistas/msg_details.html', context )
+def getMessages(request, canal):
+    room_details = Canal.objects.get(name=canal)
 
-'''
-def login_page(request):
-    return render(request, 'listings/base.html')
-'''
+    messages = Mensaje.objects.filter(canal=room_details.id)
+    return JsonResponse({"messages":list(messages.values())})
